@@ -149,7 +149,7 @@ def convert(text, code=True, tabsize=4):
             # implies a reset code as well: "No parameters at all in ESC[m acts
             # like a 0 reset code".
             # [1] https://en.wikipedia.org/wiki/ANSI_escape_code#CSI_sequences
-            if in_span and (0 in ansi_codes or not ansi_codes):
+            if in_span and (0 in ansi_codes or 39 in ansi_codes or not ansi_codes):
                 output.append('</span>')
                 in_span = False
             # Now we're ready to generate the next <span> element (if any) in
